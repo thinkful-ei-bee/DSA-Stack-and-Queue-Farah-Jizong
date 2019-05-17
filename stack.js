@@ -133,21 +133,27 @@ function sortStack(stack){
 
     while(!isEmpty(stack)){
         tempVar = stack.pop();
+        console.log(tempVar,'temp var')
         
         if(isEmpty(secondStack)){
             secondStack.push(tempVar);
+            console.log(secondStack,'second stack in if')
         }
 
         while(tempVar < peek(secondStack)){
+            
             stack.push(secondStack.pop());
+            console.log(peek(secondStack),'test secondStack peek')
         } 
         
         secondStack.push(tempVar);
         }   
     
-    while(!isEmpty(secondStack)){
-        stack.push(secondStack.pop());
-    }
+    // while(!isEmpty(secondStack)){
+    //     stack.push(secondStack.pop());
+    //     console.log(stack,'stack')
+    // }
+
     return stack;
     
     //originalStack = 4, 1, 2, 5
