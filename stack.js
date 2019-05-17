@@ -83,6 +83,11 @@ return true
 
 // Matching parenthesis
 function matchingParenthesis(s){
+    // input: ((7 + 2 ) * ( 4 + 2 ))
+    // output: number of '(':3    number of ')':3
+
+    // push exp into a stack 
+    // pop out each
     let counter = 0;
     let counter2=0;
     const expressionStack = new Stack();
@@ -91,17 +96,16 @@ function matchingParenthesis(s){
         counter2++;
 
         if (letter === '('){
-            expressionStack.push(letter);
-           // console.log(display(expressionStack))
+            expressionStack.push(letter)
         }
        
         if (letter === ')') {
             if ( !isEmpty(expressionStack)){
                 expressionStack.pop();
-            } else {
-                return `Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`;
             }
-            
+            else{
+              console.log (`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
+            }
         }
     }
 
@@ -119,6 +123,7 @@ function matchingParenthesis(s){
     } }
       return
 }
+
 
 function main() {
     const starTrek = new Stack();
