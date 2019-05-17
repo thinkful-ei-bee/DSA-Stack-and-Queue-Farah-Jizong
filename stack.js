@@ -3,99 +3,97 @@
 Create a stack called starTrek and add Kirk, Spock, McCoy, and Scotty to the stack. */
 
 class _Node{
-    constructor(data, next) {
-        this.data = data;
-        this.next = next;
-    }
+  constructor(data, next) {
+      this.data = data;
+      this.next = next;
+  }
 }
 
 class Stack {
-    constructor() {
-        this.top = null; // empty 1st node, indicates top of stack
-    }
+  constructor() {
+      this.top = null; // empty 1st node, indicates top of stack
+  }
 
-    push(data) {
-        if (this.top === null) {
-            this.top = new _Node(data, null);
-            return this.top;
-        }
+  push(data) {
+      if (this.top === null) {
+          this.top = new _Node(data, null);
+          return this.top;
+      }
 
-        const node = new _Node(data, this.top);
-        this.top = node;
-    }
+      const node = new _Node(data, this.top);
+      this.top = node;
+  }
 
-    pop() {
-        const node = this.top;
-        this.top = node.next;
-        return node.data;
-    }
+  pop() {
+      const node = this.top;
+      this.top = node.next;
+      return node.data;
+  }
 }
 
 function peek(stack){
-    if (stack.top === null) {
-        return 'Stack is empty';
-    }
+  if (stack.top === null) {
+      return 'Stack is empty';
+  }
 
-    return stack.top;
+  return stack.top;
 }
 
 function display(stack) {
-    if (stack.top === null) {
-        return 'Stack is empty';
-    }
+  if (stack.top === null) {
+      return 'Stack is empty';
+  }
 
-    return stack.top.data;
+  return stack.top.data;
 }
 
 function isEmpty(stack) {
-    if (stack.top === null) {
-        return true;
-    } else {
-        return false;
-    }
+  if (stack.top === null) {
+      return true;
+  } else {
+      return false;
+  }
 }
 
 
 function main() {
-    const starTrek = new Stack();
-    const starTrekEmpty = new Stack();
-    
-    starTrek.push('Kirk');
-    starTrek.push('Spock');
-    starTrek.push('McCoy');
-    starTrek.push('Scotty');
-    starTrek.pop('Scotty');
-    starTrek.pop('McCoy')
+  const starTrek = new Stack();
+  const starTrekEmpty = new Stack();
+  
+  starTrek.push('Kirk');
+  starTrek.push('Spock');
+  starTrek.push('McCoy');
+  starTrek.push('Scotty');
 
-    //console.log(starTrek);
+  //console.log(starTrek);
 
-    // console.log(peek(starTrek));
-    console.log(display(starTrek));
-    console.log(isEmpty(starTrekEmpty));
-    console.log(isEmpty(starTrek));
+  // console.log(peek(starTrek));
+  // console.log(display(starTrek));
+  console.log(isEmpty(starTrekEmpty));
+  console.log(isEmpty(starTrek));
 }
 
 main();
 
 
 function is_palindrome(s) {
-  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
-  const palindromeStack = new Stack()
-  const palindromeString = []
-  for(letter of s){
-    palindromeStack.push(letter)
-  }
+s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+const palindromeStack = new Stack()
+const palindromeString = []
+for(letter of s){
+  palindromeStack.push(letter)
+}
 
-  while(!isEmpty(palindromeStack )){
-      palindromeString.push(palindromeStack.pop())  
+while(!isEmpty(palindromeStack )){
+    palindromeString.push(palindromeStack.pop())  
+}
+
+for(let i=0;i<s.length;i++){
+  if(s[i]!==palindromeString[i]){
+    return false
   }
- 
-  for(let i=0;i<s.length;i++){
-    if(s[i]!==palindromeString[i]){
-      return false
-    }
-  }
-  return true
+}
+return true
 }
 
 //True, true, true, false
