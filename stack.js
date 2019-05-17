@@ -64,11 +64,13 @@ function main() {
     starTrek.push('Spock');
     starTrek.push('McCoy');
     starTrek.push('Scotty');
+    starTrek.pop('Scotty');
+    starTrek.pop('McCoy')
 
     //console.log(starTrek);
 
     // console.log(peek(starTrek));
-    // console.log(display(starTrek));
+    console.log(display(starTrek));
     console.log(isEmpty(starTrekEmpty));
     console.log(isEmpty(starTrek));
 }
