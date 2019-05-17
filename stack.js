@@ -101,14 +101,7 @@ function matchingParenthesis(s){
             } else {
                 return `Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`;
             }
-<<<<<<< HEAD
-            else{
-              console.log (`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
-            }
-||||||| merged common ancestors
-            console.log(`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
-=======
->>>>>>> 154f633d721a073a2c393ff655f2f117926c9c83
+            
         }
     }
 
@@ -117,32 +110,14 @@ function matchingParenthesis(s){
         counter++;
     }
 
-<<<<<<< HEAD
     if(counter === 0 && counter2===0){
       return 'everything looks good';  
-||||||| merged common ancestors
-    if(counter > 0){
-        for(let i = 0; i < counter; i++) {
-            console.log(`Parentheses at position ${i + 1} is missing it's closing parenthesis.`);
-        } 
-=======
-    if(counter > 0){
-        for(let i = 0; i < counter; i++) {
-            return `Parentheses at position ${i + 1} is missing it's closing parenthesis.`;
-        } 
->>>>>>> 154f633d721a073a2c393ff655f2f117926c9c83
     } 
-<<<<<<< HEAD
     else{
       for(let i = 0; i < counter; i++) {
         console.log (`Parentheses at position ${i + 1} is missing it's closing parenthesis.`);
     } }
       return
-||||||| merged common ancestors
-    return;
-=======
-    return 'No parentheses missing.';
->>>>>>> 154f633d721a073a2c393ff655f2f117926c9c83
 }
 
 function main() {
@@ -161,13 +136,7 @@ function main() {
     // console.log(isEmpty(starTrekEmpty));
     // console.log(isEmpty(starTrek));
 
-<<<<<<< HEAD
     console.log(matchingParenthesis('()()())))((('))
-||||||| merged common ancestors
-    console.log(matchingParenthesis('(,(,(,),),),)'))
-=======
-    console.log(matchingParenthesis('(,(,(,),),)'))
->>>>>>> 154f633d721a073a2c393ff655f2f117926c9c83
   }
   
   main();
