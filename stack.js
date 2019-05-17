@@ -96,13 +96,16 @@ function matchingParenthesis(s){
         counter2++;
 
         if (letter === '('){
-            expressionStack.push(letter)
+            expressionStack.push(letter);
+           // console.log(display(expressionStack))
         }
         if (letter === ')') {
             if (!isEmpty(expressionStack)){
+                console.log(display(expressionStack))
                 expressionStack.pop();
+            } else {
+                console.log(`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
             }
-            console.log(`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
         }
     }
 
@@ -136,7 +139,7 @@ function main() {
     // console.log(isEmpty(starTrekEmpty));
     // console.log(isEmpty(starTrek));
 
-    console.log(matchingParenthesis('(,(,(,),),),)'))
+    console.log(matchingParenthesis('(,(,(,),),),),)'))
   }
   
   main();
