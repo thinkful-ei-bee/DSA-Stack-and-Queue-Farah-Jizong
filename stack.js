@@ -114,7 +114,7 @@ function matchingParenthesis(s){
         counter++;
     }
 
-    if(counter > 0){
+    if(counter === 0 && counter2===0){
       return 'everything looks good';  
     } 
     else{
@@ -141,7 +141,7 @@ function main() {
     // console.log(isEmpty(starTrekEmpty));
     // console.log(isEmpty(starTrek));
 
-    console.log(matchingParenthesis('(,(,(,(,),),),),)())'))
+    console.log(matchingParenthesis('()()())))((('))
   }
   
   main();
