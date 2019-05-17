@@ -49,9 +49,9 @@ function display(stack) {
 
 function isEmpty(stack) {
     if (stack.top === null) {
-        return 'Stack is empty';
+        return true;
     } else {
-        return 'Stack is populated';
+        return false;
     }
 }
 
@@ -74,3 +74,31 @@ function main() {
 }
 
 main();
+
+
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  const palindromeStack = new Stack()
+  const palindromeString = []
+  for(letter of s){
+    palindromeStack.push(letter)
+  }
+
+  while(!isEmpty(palindromeStack )){
+      palindromeString.push(palindromeStack.pop())  
+  }
+ 
+  for(let i=0;i<s.length;i++){
+    if(s[i]!==palindromeString[i]){
+      return false
+    }
+  }
+  return true
+}
+
+//True, true, true, false
+console.log(is_palindrome("dad"));
+console.log(is_palindrome("A man, a plan, a canal: Panama"));
+console.log(is_palindrome("1001"));
+console.log(is_palindrome("Tauhida"));
+
