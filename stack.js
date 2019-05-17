@@ -30,3 +30,47 @@ class Stack {
         return node.data;
     }
 }
+
+function peek(stack){
+    if (stack.top === null) {
+        return 'Stack is empty';
+    }
+
+    return stack.top;
+}
+
+function display(stack) {
+    if (stack.top === null) {
+        return 'Stack is empty';
+    }
+
+    return stack.top.data;
+}
+
+function isEmpty(stack) {
+    if (stack.top === null) {
+        return 'Stack is empty';
+    } else {
+        return 'Stack is populated';
+    }
+}
+
+
+function main() {
+    const starTrek = new Stack();
+    const starTrekEmpty = new Stack();
+    
+    starTrek.push('Kirk');
+    starTrek.push('Spock');
+    starTrek.push('McCoy');
+    starTrek.push('Scotty');
+
+    //console.log(starTrek);
+
+    // console.log(peek(starTrek));
+    // console.log(display(starTrek));
+    console.log(isEmpty(starTrekEmpty));
+    console.log(isEmpty(starTrek));
+}
+
+main();
