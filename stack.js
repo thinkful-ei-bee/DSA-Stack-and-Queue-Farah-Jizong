@@ -127,24 +127,32 @@ function matchingParenthesis(s){
 
 // 5. Sort stack
 function sortStack(stack){
+    const firstStack = new Stack();
     const secondStack = new Stack();
     let tempVar;
 
-    while(!isEmpty(stack)){
-        tempVar = stack.pop();
+    firstStack.push(stack);
+
+    while(!isEmpty(firstStack)){
+        tempVar = firstStack.pop();
         
         if(isEmpty(secondStack)){
             secondStack.push(tempVar);
         }
 
-        if(tempVar > peek(secondStack)){
-            stack.push(secondStack.pop());
-        } else {
-            secondStack.push(tempVar);
-        }
+        while(tempVar < peek(secondStack)){
+            firstStack.push(secondStack.pop());
+        } 
+        
+        secondStack.push(tempVar);
+        }   
+    
+    while(!isEmpty(secondStack)){
+        firstStack.push(secondStack.pop());
     }
-
-    return secondStack;
+    return firstStack;
+    
+    //originalStack = 4, 1, 2, 5
 }
 
 
