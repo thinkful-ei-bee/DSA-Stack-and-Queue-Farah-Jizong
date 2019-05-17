@@ -55,27 +55,6 @@ function isEmpty(stack) {
   }
 }
 
-
-function main() {
-  const starTrek = new Stack();
-  const starTrekEmpty = new Stack();
-  
-  starTrek.push('Kirk');
-  starTrek.push('Spock');
-  starTrek.push('McCoy');
-  starTrek.push('Scotty');
-
-  //console.log(starTrek);
-
-  // console.log(peek(starTrek));
-  // console.log(display(starTrek));
-  console.log(isEmpty(starTrekEmpty));
-  console.log(isEmpty(starTrek));
-}
-
-main();
-
-
 function is_palindrome(s) {
 s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
 const palindromeStack = new Stack()
@@ -102,3 +81,62 @@ return true
 // console.log(is_palindrome("1001"));
 // console.log(is_palindrome("Tauhida"));
 
+// Matching parenthesis
+function matchingParenthesis(s){
+    // input: ((7 + 2 ) * ( 4 + 2 ))
+    // output: number of '(':3    number of ')':3
+
+    // push exp into a stack 
+    // pop out each
+    let counter = 0;
+    let counter2 = 0;
+    const expressionStack = new Stack();
+
+    for(letter of s){
+        counter2++;
+
+        if (letter === '('){
+            expressionStack.push(letter)
+        }
+        if (letter === ')') {
+            if (!isEmpty(expressionStack)){
+                expressionStack.pop();
+            }
+            console.log(`Closing parenthesis at position ${counter2} is missing it's opening parenthesis.`);
+        }
+    }
+
+    while(!isEmpty(expressionStack)){
+        expressionStack.pop();
+        counter++;
+    }
+
+    if(counter > 0){
+        for(let i = 0; i < counter; i++) {
+            console.log(`Parentheses at position ${i + 1} is missing it's closing parenthesis.`);
+        } 
+    } 
+    return;
+}
+
+
+function main() {
+    const starTrek = new Stack();
+    const starTrekEmpty = new Stack();
+    
+    starTrek.push('Kirk');
+    starTrek.push('Spock');
+    starTrek.push('McCoy');
+    starTrek.push('Scotty');
+  
+    //console.log(starTrek);
+  
+    // console.log(peek(starTrek));
+    // console.log(display(starTrek));
+    // console.log(isEmpty(starTrekEmpty));
+    // console.log(isEmpty(starTrek));
+
+    console.log(matchingParenthesis('(,(,(,),),),)'))
+  }
+  
+  main();
