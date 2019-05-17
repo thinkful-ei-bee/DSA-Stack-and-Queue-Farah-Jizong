@@ -127,30 +127,28 @@ function matchingParenthesis(s){
 
 // 5. Sort stack
 function sortStack(stack){
-    const firstStack = new Stack();
     const secondStack = new Stack();
+
     let tempVar;
 
-    firstStack.push(stack);
-
-    while(!isEmpty(firstStack)){
-        tempVar = firstStack.pop();
+    while(!isEmpty(stack)){
+        tempVar = stack.pop();
         
         if(isEmpty(secondStack)){
             secondStack.push(tempVar);
         }
 
         while(tempVar < peek(secondStack)){
-            firstStack.push(secondStack.pop());
+            stack.push(secondStack.pop());
         } 
         
         secondStack.push(tempVar);
         }   
     
     while(!isEmpty(secondStack)){
-        firstStack.push(secondStack.pop());
+        stack.push(secondStack.pop());
     }
-    return firstStack;
+    return stack;
     
     //originalStack = 4, 1, 2, 5
 }
@@ -174,7 +172,13 @@ function main() {
 
     // console.log(matchingParenthesis('()()())))((('))
     
-    console.log(sortStack(4, 1, 2, 5));
+    const originalStack = new Stack();
+
+    originalStack.push(1);
+    originalStack.push(5);
+    originalStack.push(2);
+    originalStack.push(4);
+    console.log(sortStack(originalStack));
   }
   
   main();
