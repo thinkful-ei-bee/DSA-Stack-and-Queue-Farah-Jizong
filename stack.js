@@ -2,12 +2,16 @@
 
 Create a stack called starTrek and add Kirk, Spock, McCoy, and Scotty to the stack. */
 
+// Node class
+
 class _Node{
   constructor(data, next) {
       this.data = data;
       this.next = next;
   }
 }
+
+// Stack
 
 class Stack {
   constructor() {
@@ -75,7 +79,7 @@ for(let i=0;i<s.length;i++){
 return true
 }
 
-//True, true, true, false
+//expected answer => True, true, true, false
 // console.log(is_palindrome("dad"));
 // console.log(is_palindrome("A man, a plan, a canal: Panama"));
 // console.log(is_palindrome("1001"));
@@ -127,36 +131,18 @@ function matchingParenthesis(s){
 
 // 5. Sort stack
 function sortStack(stack){
-    const secondStack = new Stack();
+    const tempStack = new Stack();
 
-    let tempVar;
+    let tempVar=null;
 
     while(!isEmpty(stack)){
-        tempVar = stack.pop();
-        console.log(tempVar,'temp var')
-        
-        if(isEmpty(secondStack)){
-            secondStack.push(tempVar);
-            console.log(secondStack,'second stack in if')
-        }
-
-        while(tempVar < peek(secondStack)){
-            
-            stack.push(secondStack.pop());
-            console.log(peek(secondStack),'test secondStack peek')
-        } 
-        
-        secondStack.push(tempVar);
-        }   
-    
-    // while(!isEmpty(secondStack)){
-    //     stack.push(secondStack.pop());
-    //     console.log(stack,'stack')
-    // }
-
-    return stack;
-    
-    //originalStack = 4, 1, 2, 5
+      tempVar = stack.pop()      
+      while(!isEmpty(tempStack)&& display(tempStack)>tempVar){        
+        stack.push(tempStack.pop())        
+      }
+      tempStack.push(tempVar)
+    }
+    return tempStack
 }
 
 
@@ -184,7 +170,16 @@ function main() {
     originalStack.push(5);
     originalStack.push(2);
     originalStack.push(4);
-    console.log(sortStack(originalStack));
+    
+    let sorted = sortStack(originalStack)
+    console.log('test pop')
+    console.log(sorted)
+    console.log(sorted.pop())
+    console.log(sorted.pop())
+    console.log(sorted.pop())
+    
+ 
+    
   }
   
   main();
