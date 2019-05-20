@@ -126,49 +126,29 @@ function matchingParenthesis(s){
 
 
 // 5. Sort stack
-function sortStack(stack){
-    const secondStack = new Stack();
-    let tempVar;
+function sortStack(originalStack){
+  let newStack = new Stack();
 
-    // tempVar = stack.pop()
-    // if(isEmpty(secondStack)){
-    //     secondStack.push(tempVar);
-    //     tempVar = stack.pop();
-    // } else {
-    //     if (tempVar < peek(secondStack)){
-    //         stack.push(secondStack.pop());
-    //         secondStack.push(tempVar)
-    //     }
-    // }
+  while(!isEmpty(originalStack)){
+      let temp = originalStack.pop();
 
-    // while(!isEmpty(stack)){
-    //     tempVar = stack.pop();
-    //     //console.log(tempVar)
-    //      }
+      while(!isEmpty(newStack) && (peek(newStack) > temp)){
+          originalStack.push(newStack.pop());
+      }
+      newStack.push(temp);
 
-    //     if(isEmpty(secondStack)){
-    //         secondStack.push(tempVar);
-    //         console.log(tempVar)
-    //     }      
-       
-    //     while(tempVar < peek(secondStack)){
-    //             stack.push(secondStack.pop());
-    //         } 
-        
-    //         secondStack.push(tempVar);
-    //         //console.log(tempVar)
-
-    // while(!isEmpty(secondStack)){
-    //     stack.push(secondStack.pop());
-    // }
-
-    console.log(tempVar);
-    return peek(secondStack);
-
-    
-    //originalStack = 4, 1, 2, 5
+  }
+  while(!isEmpty(newStack)){
+      originalStack.push(newStack.pop());
+  }
 }
+/* OG stack         New stack
 
+            temp =      6
+                        3
+                        2
+                      __1__
+*/
 
 function main() {
     const starTrek = new Stack();
