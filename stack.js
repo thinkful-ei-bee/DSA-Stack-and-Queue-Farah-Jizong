@@ -128,27 +128,43 @@ function matchingParenthesis(s){
 // 5. Sort stack
 function sortStack(stack){
     const secondStack = new Stack();
-
     let tempVar;
 
-    while(!isEmpty(stack)){
-        tempVar = stack.pop();
-        
-        if(isEmpty(secondStack)){
-            secondStack.push(tempVar);
-        }
+    // tempVar = stack.pop()
+    // if(isEmpty(secondStack)){
+    //     secondStack.push(tempVar);
+    //     tempVar = stack.pop();
+    // } else {
+    //     if (tempVar < peek(secondStack)){
+    //         stack.push(secondStack.pop());
+    //         secondStack.push(tempVar)
+    //     }
+    // }
 
-        while(tempVar < peek(secondStack)){
-            stack.push(secondStack.pop());
-        } 
+    // while(!isEmpty(stack)){
+    //     tempVar = stack.pop();
+    //     //console.log(tempVar)
+    //      }
+
+    //     if(isEmpty(secondStack)){
+    //         secondStack.push(tempVar);
+    //         console.log(tempVar)
+    //     }      
+       
+    //     while(tempVar < peek(secondStack)){
+    //             stack.push(secondStack.pop());
+    //         } 
         
-        secondStack.push(tempVar);
-        }   
-    
-    while(!isEmpty(secondStack)){
-        stack.push(secondStack.pop());
-    }
-    return stack;
+    //         secondStack.push(tempVar);
+    //         //console.log(tempVar)
+
+    // while(!isEmpty(secondStack)){
+    //     stack.push(secondStack.pop());
+    // }
+
+    console.log(tempVar);
+    return peek(secondStack);
+
     
     //originalStack = 4, 1, 2, 5
 }
