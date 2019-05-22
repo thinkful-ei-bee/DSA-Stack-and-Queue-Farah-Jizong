@@ -40,15 +40,15 @@ function peek(stack){
       return 'Stack is empty';
   }
 
-  return stack.top;
+  return stack.top.data;
 }
 
 function display(stack) {
-  if (stack.top === null) {
-      return 'Stack is empty';
+  node = stack.top
+  while(node!=null){
+    console.log(node.data);
+    node=node.next
   }
-
-  return stack.top.data;
 }
 
 function isEmpty(stack) {
@@ -137,7 +137,7 @@ function sortStack(stack){
 
     while(!isEmpty(stack)){
       tempVar = stack.pop()      
-      while(!isEmpty(tempStack)&& display(tempStack)>tempVar){        
+      while(!isEmpty(tempStack)&& peek(tempStack)>tempVar){        
         stack.push(tempStack.pop())        
       }
       tempStack.push(tempVar)
@@ -174,10 +174,11 @@ function main() {
     let sorted = sortStack(originalStack)
     console.log('test pop')
     console.log(sorted)
+    display(sorted)
     console.log(sorted.pop())
     console.log(sorted.pop())
     console.log(sorted.pop())
-    
+    console.log(sorted.pop())
  
     
   }

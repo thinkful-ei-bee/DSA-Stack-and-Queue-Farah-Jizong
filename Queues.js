@@ -1,15 +1,17 @@
+'use strict';
+
 class _Node{
   constructor(value){
-    this.value=value
-    this.next=null
+    this.value=value;
+    this.next=null;
   }
 }
 
 
 class Queue{
   constructor(){
-    this.first = null
-    this.last = null
+    this.first = null;
+    this.last = null;
   }
 
   enqueue(data){
@@ -18,31 +20,39 @@ class Queue{
       this.first = node;
     }
     if(this.last){
-      this.last.next = node
+      this.last.next = node;
     }
 
-    this.last=node            
+    this.last=node;            
   }
 
   dequeue(){
     if(this.first===null){
-      return 
+      return; 
     }
-    const node = this.first
-    this.first = this.first.next
+    const node = this.first;
+    this.first = this.first.next;
     if(node===this.last){
-      this.last=null
+      this.last=null;
     }
-    return node.value
+    return node.value;
   }
 }
 
 function peek(queue){
-  return queue.first.value
+  return queue.first.value;
 }
 
 function isEmpty(queue){
-  return queue.first===null
+  return queue.first===null;
+}
+
+function display(queue){
+  const node = queue.first;
+  while(node!==null){
+    console.log(node.value);
+    node = node.next;
+  }
 }
 
 const starTrekQ = new Queue;
@@ -56,5 +66,8 @@ const newQueue = new Queue;
 
 // test with an empty queue
 // console.log(isEmpty(newQueue))
-
-
+//console.log(starTrekQ.first,'test first')
+display(starTrekQ)
+starTrekQ.dequeue()
+console.log('--------')
+display(starTrekQ)
