@@ -144,7 +144,13 @@ function sortStack(stack){
     }
     return tempStack
 }
+/* OG stack         New stack
 
+            temp =      6
+                        3
+                        2
+                      __1__
+*/
 
 function main() {
     const starTrek = new Stack();
