@@ -23,4 +23,22 @@ class Stack{
         this.top = node.next;
         return node.data;
     }
+
+    peek(){
+        return this.top.data;
+    }
+
+    isEmpty(){
+        return this.top === null;
+    }
+
+    display(){
+        let node = this.top;
+        while(node){
+            console.log(node.data);
+            node = node.next;
+        }
+    }
 }
+
+module.exports = Stack;
