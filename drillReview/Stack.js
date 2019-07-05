@@ -25,6 +25,9 @@ class Stack{
     }
 
     peek(){
+        if(this.top ===null){
+            return null;
+        }
         return this.top.data;
     }
 
